@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="RTD-mX-kLl">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="gGM-G5-Zab">
+            <objects>
+                <viewController storyboardIdentifier="sidViewController" id="RTD-mX-kLl" customClass="ViewController" customModule="ContactExport" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2fB-6f-MJi"/>
+                        <viewControllerLayoutGuide type="bottom" id="Wo2-Rl-bmE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CQz-ng-YWP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="xrl-kX-Hx4">
+                                <rect key="frame" x="-4" y="0.0" width="383" height="667"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5TH-A3-nA8">
+                                <rect key="frame" x="329" y="28" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="onk-fG-hMF"/>
+                                    <constraint firstAttribute="width" constant="30" id="wXZ-FH-5gA"/>
+                                </constraints>
+                                <state key="normal" image="settings"/>
+                                <connections>
+                                    <action selector="settingsPressed:" destination="RTD-mX-kLl" eventType="touchUpInside" id="3gX-XG-Vyj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kM2-dP-CqS">
+                                <rect key="frame" x="16" y="285" width="343" height="97"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="lV5-Lg-KUe"/>
+                                    <constraint firstAttribute="height" constant="97" id="vD3-w1-zDm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <state key="normal" title="Export your contacts" image="exportIcon">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="exportPressed:" destination="RTD-mX-kLl" eventType="touchUpInside" id="NdP-pz-Ulv"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="xrl-kX-Hx4" secondAttribute="trailing" constant="-20" id="LzI-gs-pv9"/>
+                            <constraint firstItem="kM2-dP-CqS" firstAttribute="centerX" secondItem="CQz-ng-YWP" secondAttribute="centerX" id="NWb-h9-sHJ"/>
+                            <constraint firstItem="xrl-kX-Hx4" firstAttribute="leading" secondItem="CQz-ng-YWP" secondAttribute="leadingMargin" constant="-20" id="Onn-XU-ffm"/>
+                            <constraint firstItem="xrl-kX-Hx4" firstAttribute="top" secondItem="CQz-ng-YWP" secondAttribute="topMargin" id="WVq-0J-wn1"/>
+                            <constraint firstItem="5TH-A3-nA8" firstAttribute="top" secondItem="2fB-6f-MJi" secondAttribute="bottom" constant="8" id="cg7-2y-5NJ"/>
+                            <constraint firstItem="Wo2-Rl-bmE" firstAttribute="top" secondItem="xrl-kX-Hx4" secondAttribute="bottom" id="eyD-t1-gCJ"/>
+                            <constraint firstItem="5TH-A3-nA8" firstAttribute="trailing" secondItem="CQz-ng-YWP" secondAttribute="trailingMargin" id="pi0-fc-t44"/>
+                            <constraint firstItem="kM2-dP-CqS" firstAttribute="centerY" secondItem="CQz-ng-YWP" secondAttribute="centerY" id="tEK-Hs-kgr"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rag-nJ-EZ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-396" y="-1162.6686656671666"/>
+        </scene>
+        <!--SettingsVC-->
+        <scene sceneID="ksX-xf-dIl">
+            <objects>
+                <viewController storyboardIdentifier="sidSettingsVC" id="BCf-V1-AHI" customClass="SettingsVC" customModule="ContactExport" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TxQ-jI-KXo"/>
+                        <viewControllerLayoutGuide type="bottom" id="SP2-i0-hVi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="N9S-dr-9fC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Yj8-gB-FR3">
+                                <rect key="frame" x="-4" y="0.0" width="383" height="667"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Hvj-jN-Njf">
+                                <rect key="frame" x="-4" y="58" width="383" height="609"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseId" id="LDd-w6-Sbb">
+                                        <rect key="frame" x="0.0" y="56" width="383" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LDd-w6-Sbb" id="BKn-1b-TDA">
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BCf-V1-AHI" id="2Nt-n2-5gb"/>
+                                    <outlet property="delegate" destination="BCf-V1-AHI" id="yAb-z5-UwK"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ouj-HL-BdE">
+                                <rect key="frame" x="313" y="20" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="Hen-Sc-Z9C"/>
+                                </constraints>
+                                <state key="normal" title="Close">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="close:" destination="BCf-V1-AHI" eventType="touchUpInside" id="j44-fE-seq"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Yj8-gB-FR3" firstAttribute="leading" secondItem="N9S-dr-9fC" secondAttribute="leadingMargin" constant="-20" id="0wP-MM-vAS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Yj8-gB-FR3" secondAttribute="trailing" constant="-20" id="5f8-zr-ag2"/>
+                            <constraint firstItem="SP2-i0-hVi" firstAttribute="top" secondItem="Hvj-jN-Njf" secondAttribute="bottom" id="7eF-4n-wAD"/>
+                            <constraint firstItem="Hvj-jN-Njf" firstAttribute="top" secondItem="Ouj-HL-BdE" secondAttribute="bottom" constant="8" id="JCx-gZ-Sht"/>
+                            <constraint firstItem="Hvj-jN-Njf" firstAttribute="leading" secondItem="N9S-dr-9fC" secondAttribute="leadingMargin" constant="-20" id="QSv-tK-IRw"/>
+                            <constraint firstItem="Yj8-gB-FR3" firstAttribute="top" secondItem="N9S-dr-9fC" secondAttribute="topMargin" id="XYi-Xh-FgE"/>
+                            <constraint firstItem="Ouj-HL-BdE" firstAttribute="top" secondItem="TxQ-jI-KXo" secondAttribute="bottom" id="c7M-hj-Qdh"/>
+                            <constraint firstItem="SP2-i0-hVi" firstAttribute="top" secondItem="Yj8-gB-FR3" secondAttribute="bottom" id="dbI-Cg-bry"/>
+                            <constraint firstItem="Ouj-HL-BdE" firstAttribute="trailing" secondItem="N9S-dr-9fC" secondAttribute="trailingMargin" id="pl0-vv-ReZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Hvj-jN-Njf" secondAttribute="trailing" constant="-20" id="vri-bv-px0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Hvj-jN-Njf" id="Bqe-O5-qkQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FLZ-yB-37q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="230" y="-1162"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="background" width="1080" height="712"/>
+        <image name="exportIcon" width="48" height="48"/>
+        <image name="settings" width="48" height="48"/>
+    </resources>
+</document>
