@@ -2,7 +2,9 @@
 
 ContactExport is an App which exports your iPhone contacts to Excel.
 
-![Screenshot1](screenshot1.jpeg "")
+## Screenshots
+
+![Screenshot1](screenshot1.jpeg "" )
 ![Screenshot2](screenshot2.jpeg "")
 
 ## Release Notes
