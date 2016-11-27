@@ -145,7 +145,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func openSettings() {
         
         let url = URL(string: UIApplicationOpenSettingsURLString)
-        UIApplication.shared.openURL(url!)
+        UIApplication.shared.open(url!, options: [:])
     }
     
 

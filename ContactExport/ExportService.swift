@@ -12,21 +12,8 @@ import UIKit
 class ExportService: NSObject {
     
     let contactsProperty = ContacsProperty.sharedInstance
-    
-    
-//    func exportContacts() {
-//        
-//        AppDelegate.getAppDelegate().requestForAccess { (accessGranted) -> Void in
-//            if accessGranted {
-//                self.createExcel()
-//            }
-//        }
-//    }
-    
-    
-    func exportContacts() {
-        
 
+    func exportContacts() {
         
         let keysToFetch = [CNContactGivenNameKey, CNContactMiddleNameKey,
                            CNContactFamilyNameKey,
@@ -44,7 +31,6 @@ class ExportService: NSObject {
                            CNContactEmailAddressesKey,
 
                            CNContactPostalAddressesKey
-            
 
                            ] as [Any]
         
@@ -149,22 +135,12 @@ class ExportService: NSObject {
             
             
             // POSTALISCHE ADRESSE
-            
-            
-            guard let firstAddress = contact.postalAddresses.first else {
+            guard contact.postalAddresses.first != nil else {
                 print("no postal address could be found")
                 xml = xml + "</Row>"
                 continue
             }
-            
-         
-            
-//            let formatter = CNPostalAddressFormatter()
-//            let formattedAddress = formatter.string(from: firstAddress.value)
-//            
-//            print("The address is \(formattedAddress)")
-            
-
+        
             let a = contact.postalAddresses as [CNLabeledValue]
             
             print(contact.postalAddresses)
@@ -176,7 +152,6 @@ class ExportService: NSObject {
             var cityFirst = ""
             
             
-
             for i in 0..<a.count {
             
                 
@@ -239,8 +214,6 @@ class ExportService: NSObject {
         
         
         writeToFile(xml: xml)
-        
-        
     }
     
     
@@ -248,33 +221,20 @@ class ExportService: NSObject {
     
     func writeToFile(xml: String) {
         
-        // https://stackoverflow.com/questions/24097826/read-and-write-data-from-text-file/24098149#24098149
-        
-        let file = fileNameContactsXls
-        
         if let dir : NSString = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first as NSString? {
-            let path = dir.appendingPathComponent(file);
+            let path = dir.appendingPathComponent(fileNameContactsXls);
             
             //writing
             do {
                 try xml.write(toFile: path, atomically: false, encoding: String.Encoding.utf8)
-                #if DEBUG
-                    print("\(#function): Writing finished")
-                #endif
-                //UIAlertView(title: "Kontakte exportiert", message: "", delegate: self, cancelButtonTitle: "Ok").show()
             }
             catch {
-                print("\(#function): Error")
-                UIAlertView(title: "Fehler beim exportieren deiner Kontakte", message: "", delegate: self, cancelButtonTitle: "Ok").show()
+                print("\(#function): Error: ", error.localizedDescription)
+                
+                let alertController = UIAlertController(title: "Fehler beim exportieren deiner Kontakte", message: "", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) { (action) -> Void in})
+                UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
             }
-            
-            //reading
-            /*
-            do {
-            let text2 = try NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding)
-            }
-            catch {/* error handling here */}
-            */
         }
     }
 

@@ -25,17 +25,7 @@ class ViewController: UIViewController {
 
     
     @IBAction func exportPressed(_ sender: Any) {
-        
-//        let alertController = UIAlertController(title: "Kontakte exportiert", message: "", preferredStyle: .alert)
-//        
-//        let OKAction = UIAlertAction(title: "Ok", style: .default) { (action:UIAlertAction) in
-//            print("You've pressed OK button");
-//        }
-//        
-//        alertController.addAction(OKAction)
-//        self.present(alertController, animated: true, completion:nil)
-        
-        
+
         AppDelegate.getAppDelegate().requestForAccess { (accessGranted) -> Void in
             
             if accessGranted {
@@ -44,12 +34,6 @@ class ViewController: UIViewController {
                 self.emailService.sendPlainEmail(controller: self, subject: "Meine Kontakte", messageBody: "", recipients: [], attachmentFileName: fileNameContactsXls, isHTML: false)
             }
         }
-        
-        
-      
-        
-    
-        
     }
 
     @IBAction func settingsPressed(_ sender: Any) {
@@ -57,7 +41,6 @@ class ViewController: UIViewController {
         let vc = (storyboard?.instantiateViewController(withIdentifier: "sidSettingsVC"))! as UIViewController
         vc.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal
         present(vc, animated: true, completion: nil)
-        
     }
 
 }
